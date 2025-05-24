@@ -15,7 +15,7 @@
             class="border-b-2 pb-1"
             :class="isActiveRoute('/') ? 'border-black text-black font-medium' : 'border-transparent text-gray-500 hover:text-black'"
           >
-            Materi
+            Home
           </RouterLink>
           <RouterLink
             to="/tugas"
@@ -24,13 +24,13 @@
           >
             Tugas
           </RouterLink>
-          <RouterLink
+          <!-- <RouterLink
             to="/submission"
             class="border-b-2 pb-1"
             :class="isActiveRoute('/submission') ? 'border-black text-black font-medium' : 'border-transparent text-gray-500 hover:text-black'"
           >
             Submission
-          </RouterLink>
+          </RouterLink> -->
         </div>
 
         <!-- Kanan: Icon user -->

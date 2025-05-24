@@ -6,7 +6,7 @@
         to="/"
         class="inline-block text-sm text-blue-600 hover:text-blue-800 transition font-medium"
       >
-        ← Kembali ke halaman Materi
+        ← Kembali ke halaman Home
       </router-link>
     </div>
 

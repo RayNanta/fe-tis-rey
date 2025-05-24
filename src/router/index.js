@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MateriView from '../views/MateriView.vue'
+import HomeView from '../views/HomeView.vue'
 import TugasView from '../views/TugasView.vue'
 import SubmissionView from '../views/SubmissionView.vue'
 import CourseDetailView from '../views/CourseDetailView.vue'
 
 const routes = [
-  { path: '/', name: 'Materi', component: MateriView },
+  { path: '/', name: 'Home', component: HomeView },
   { path: '/tugas', name: 'Tugas', component: TugasView },
   { path: '/submission', name: 'Submission', component: SubmissionView },
   {

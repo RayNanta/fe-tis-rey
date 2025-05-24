@@ -6,7 +6,7 @@
         class="text-sm font-medium"
         :class="isOverdue ? 'text-red-500' : 'text-green-600'"
       >
-        {{ formattedDeadline }}
+        {{ formatted }}
       </span>
     </div>
     <p class="text-gray-600 text-sm mb-4">{{ desc }}</p>
@@ -16,6 +16,9 @@
 
 <script setup>
 import { computed } from 'vue'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+dayjs.extend(customParseFormat)      // agar format "YYYY-MM-DD HH:mm:ss" tervalidasi
 
 const props = defineProps({
   title: String,
@@ -23,14 +26,15 @@ const props = defineProps({
   deadline: String
 })
 
-const formattedDeadline = computed(() => {
-  const date = new Date(props.deadline)
-  return date.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' })
+const formatted = computed(() => {
+  const d = dayjs(props.deadline, 'YYYY-MM-DD HH:mm:ss')  // parse sesuai format
+  return d.isValid() ? d.format('DD/MM/YYYY') : '—'
 })
 
-const isOverdue = computed(() => {
-  const now = new Date()
-  const deadline = new Date(props.deadline)
-  return deadline < now
-})
+// const d = computed(() => dayjs(props.deadline))
+// const formattedDeadline = computed(() =>
+//   d.value.isValid() ? d.value.format('DD/MM/YYYY') : 'Tanpa Batas Waktu'
+// )
+
+// const isOverdue = computed(() => d.value.isValid() && d.value.isBefore(dayjs()))
 </script>
